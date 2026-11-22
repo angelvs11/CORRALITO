@@ -1,0 +1,6 @@
+# Revisores automaticos por carpeta.
+# Cuando cada integrante acepte la invitacion, agregar aqui su usuario de GitHub (@usuario).
+# Ejemplo:  /backend/  @usuario-samuel
+
+/infra/     @angelvs11
+/.github/   @angelvs11
