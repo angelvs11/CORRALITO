@@ -1,0 +1,2 @@
+# Dependencias del backend (agregar aqui las que se usen, con version)
+pytest==8.3.3
