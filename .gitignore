@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# Variables de entorno y secretos (NUNCA subir)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+
+# Base de datos local
+*.db
+*.sqlite3
+
+# Node / app movil
+node_modules/
+.expo/
+build/
+dist/
+
+# Flutter / Android
+.dart_tool/
+.gradle/
+*.apk
+*.aab
+
+# IDE y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# AWS / Terraform
+.aws-sam/
+.terraform/
+*.tfstate
+*.tfstate.*
