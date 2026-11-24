@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}OviApp{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/estilos.css">
+</head>
+<body>
+  <header>OviApp</header>
+  <nav>
+    <!-- Cada modulo cambia su "#" por su ruta cuando exista -->
+    <a href="/" class="activo">Inicio</a>
+    <a href="#">Inventario</a>
+    <a href="#">Nacimientos</a>
+    <a href="#">Pesajes</a>
+    <a href="#">Reportes</a>
+  </nav>
+  <main>
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>
