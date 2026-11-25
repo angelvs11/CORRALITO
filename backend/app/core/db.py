@@ -5,7 +5,11 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from app.core.config import config
 
 # El engine no se conecta hasta que se usa: importar esto no requiere BD
-engine = create_engine(config.database_url, pool_pre_ping=True)
+engine = create_engine(
+    config.database_url,
+    pool_pre_ping=True,
+    connect_args={'connect_timeout': 5},  # segundos; evita que /api/salud se cuelgue
+)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 # Todos los modelos de app/models heredan de Base (Alembic la usa)
