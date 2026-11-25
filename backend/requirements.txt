@@ -1,2 +1,13 @@
 # Dependencias del backend (agregar aqui las que se usen, con version)
+fastapi==0.115.0
+uvicorn==0.30.6
+sqlalchemy==2.0.35
+alembic==1.13.3
+psycopg[binary]==3.2.3
+jinja2==3.1.4
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+openpyxl==3.1.5
+python-dotenv==1.0.1
 pytest==8.3.3
+httpx==0.27.2

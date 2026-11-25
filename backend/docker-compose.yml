@@ -1,0 +1,10 @@
+# Solo para desarrollo local: PostgreSQL con la misma URL de .env.example
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: oviapp
+      POSTGRES_USER: oviapp
+      POSTGRES_PASSWORD: oviapp_local
+    ports:
+      - '5432:5432'
