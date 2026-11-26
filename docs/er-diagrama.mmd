@@ -1,0 +1,130 @@
+erDiagram
+    asociaciones ||--o{ ranchos : agrupa
+    asociaciones ||--o{ usuarios : "tiene (asociacion)"
+    ranchos ||--o{ usuarios : tiene
+    ranchos ||--o{ corrales : tiene
+    ranchos ||--o{ animales : tiene
+    corrales ||--o{ animales : aloja
+    animales ||--o{ animales : "madre_id / padre_id"
+    animales ||--o{ nacimientos : "madre_id / padre_id"
+    animales ||--o{ pesajes : tiene
+    animales ||--o{ eventos_sanitarios : tiene
+    animales ||--o{ bajas : "se da de baja"
+    ranchos ||--o{ nacimientos : registra
+    ranchos ||--o{ pesajes : registra
+    ranchos ||--o{ eventos_sanitarios : registra
+    ranchos ||--o{ bajas : registra
+    ranchos ||--o{ formulas : define
+    ranchos ||--o{ precios_ingredientes : "precio por kg"
+    ranchos ||--o{ bitacora_correcciones : audita
+    usuarios ||--o{ bitacora_correcciones : corrige
+    ingredientes ||--o{ precios_ingredientes : tiene
+    ingredientes ||--o{ formulas_ingredientes : compone
+    formulas ||--o{ formulas_ingredientes : incluye
+
+    asociaciones {
+        int id PK
+        string nombre UK
+    }
+    ranchos {
+        int id PK
+        int asociacion_id FK
+        string nombre
+        int dias_destete
+        bool activo
+    }
+    usuarios {
+        int id PK
+        int rancho_id FK
+        int asociacion_id FK
+        string correo UK
+        string contrasena_hash
+        string rol
+    }
+    corrales {
+        int id PK
+        int rancho_id FK
+        string nombre
+    }
+    animales {
+        int id PK
+        int rancho_id FK
+        int corral_id FK
+        string folio
+        string arete
+        string siniiga
+        string sexo
+        string estado
+        string etapa
+        string estado_reproductivo
+        int madre_id FK
+        int padre_id FK
+        date fecha_nacimiento
+        date fecha_baja
+        text motivo_baja
+    }
+    nacimientos {
+        int id PK
+        int rancho_id FK
+        int madre_id FK
+        int padre_id FK
+        date fecha_parto
+        int crias_nacidas
+        date fecha_destete
+    }
+    pesajes {
+        int id PK
+        int rancho_id FK
+        int animal_id FK
+        date fecha
+        decimal peso_kg
+    }
+    eventos_sanitarios {
+        int id PK
+        int rancho_id FK
+        int animal_id FK
+        date fecha
+        string tipo
+    }
+    bajas {
+        int id PK
+        int rancho_id FK
+        int animal_id FK
+        string tipo
+        date fecha
+    }
+    ingredientes {
+        int id PK
+        string nombre UK
+        decimal proteina_pct
+    }
+    precios_ingredientes {
+        int id PK
+        int rancho_id FK
+        int ingrediente_id FK
+        decimal precio_kg
+    }
+    formulas {
+        int id PK
+        int rancho_id FK
+        string nombre
+    }
+    formulas_ingredientes {
+        int id PK
+        int rancho_id FK
+        int formula_id FK
+        int ingrediente_id FK
+        decimal porcentaje
+    }
+    bitacora_correcciones {
+        int id PK
+        int rancho_id FK
+        string tabla
+        int registro_id
+        string campo
+        text valor_anterior
+        text valor_nuevo
+        text motivo
+        int usuario_id FK
+        datetime fecha
+    }
